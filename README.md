@@ -39,3 +39,22 @@
     <li>Object-oriented programming </li>
   </ul>
 </ul>
+
+# CPP-02
+<ul>
+  <li>Description: This module is designed to help you understand Ad-hoc polymorphism, overloads and orthodox canonical classes in CPP.</li>
+  <br>
+  <li>Keywords:</li>
+  <ul>
+    <li>Imperative programming </li>
+    <li>Object-oriented programming </li>
+    <li>Rigor</li>
+    <li>OOP</li>
+  </ul>
+  <li>Skills:</li>
+  <ul>
+    <li>Imperative programming</li>
+    <li>Object-oriented programming </li>
+    <li>Rigor </li>
+  </ul>
+</ul>
