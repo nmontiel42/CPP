@@ -58,3 +58,9 @@
     <li>Rigor </li>
   </ul>
 </ul>
+
+# CPP-03
+<ul>
+  <li>Description: This module is designed to help you understand Inheritance in CPP. </li>
+  <br>
+</ul>
