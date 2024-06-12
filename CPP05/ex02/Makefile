@@ -4,7 +4,8 @@ CC = clang++
 SRC = Bureaucrat.cpp \
 		main.cpp \
 		AForm.cpp \
-		ShrubberyCreationForm.cpp
+		ShrubberyCreationForm.cpp \
+		RobotomyRequestForm.cpp
 
 CPPFLAGS = -std=c++98 -Wall -Werror -Wextra -fsanitize=address
 

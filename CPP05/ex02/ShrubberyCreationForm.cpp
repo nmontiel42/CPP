@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nekane <nekane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:38:32 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/11 16:17:23 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:36:00 by nekane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("DefaultShrubberyCreationForm", 145, 137, "Default target")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default Shrubbery", 145, 137, "Default Shrubbery Target")
 {
 }
 
@@ -38,16 +38,27 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (executor.getGrade() > this->getRequiredExecute())
-        std::cout << "miau";
-    std::ofstream	file((this->getTarget() + "_shrubbery").c_str());
-		file << "               ,@@@@@@@," << std::endl
-			<< "       ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl
-			<< "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl
-			<< "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'" << std::endl
-			<< "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'" << std::endl
-			<< "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'" << std::endl
-			<< "   `&%\\ ` /%&'    |.|        \\ '|8'" << std::endl
-			<< "       |o|        | |         | |" << std::endl
-			<< "       |.|        | |         | |" << std::endl
-			<< "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
+	{
+        std::cout << "Grade to low" << std::endl; 
+		return ;
+	}
+    std::string filename = this->getTarget() + "_shrubbery";
+    std::ofstream file(filename.c_str());
+
+    if (!file) {
+        std::cerr << "Error: Could not open file " << filename << std::endl;
+        return;
+    }
+
+    file << "               ,@@@@@@@," << std::endl
+         << "       ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl
+         << "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o" << std::endl
+         << "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'" << std::endl
+         << "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'" << std::endl
+         << "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'" << std::endl
+         << "   `&%\\ ` /%&'    |.|        \\ '|8'" << std::endl
+         << "       |o|        | |         | |" << std::endl
+         << "       |.|        | |         | |" << std::endl
+         << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
 }
+
