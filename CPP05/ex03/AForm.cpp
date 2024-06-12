@@ -77,7 +77,7 @@ std::string AForm::getName() const
 
 bool AForm::getSigned() const
 {
-    return (this->_signed);
+    return this->_signed;
 }
 
 int AForm::getRequiredExecute() const
