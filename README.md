@@ -76,3 +76,21 @@
       <li>Object-oriented programming </li>
   </li>
 </ul>
+
+# CPP-04
+<ul>
+  <li>Description: This module is designed to help you understand Subtype polymorphism, abstract classes and interfaces in CPP. </li>
+  <br>
+  <li>Keywords:</li>
+  <ul>
+    <li>Imperative programming </li>
+    <li>Object-oriented programming </li>
+    <li>Rigor</li>
+  </ul>
+  <li>Skills:</li>
+  <ul>
+    <li>Rigor</li>
+    <li>Imperative programming</li>
+    <li>Object-oriented programming</li>
+  </ul>
+</ul>
