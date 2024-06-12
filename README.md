@@ -74,6 +74,7 @@
       <li>Rigor</li>
       <li>Imperative programming </li>
       <li>Object-oriented programming </li>
+    </ul>
   </li>
 </ul>
 
@@ -85,12 +86,13 @@
   <ul>
     <li>Imperative programming </li>
     <li>Object-oriented programming </li>
-    <li>Rigor</li>
+    <li>Rigor </li>
   </ul>
   <li>Skills:</li>
-  <ul>
-    <li>Rigor</li>
-    <li>Imperative programming</li>
-    <li>Object-oriented programming</li>
+    <ul>
+      <li>Rigor</li>
+      <li>Imperative programming </li>
+      <li>Object-oriented programming </li>
+    </ul>
   </ul>
 </ul>
