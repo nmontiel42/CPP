@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nekane <nekane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 11:53:29 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/11 15:21:59 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:01:30 by nekane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,18 @@ void Bureaucrat::signForm(AForm &other)
         std::cout << this->getName() << " couldnt sign becase it is already signed!" << std::endl;
     else
         other.beSigned(*this);
+}
+
+void Bureaucrat::executeForm(AForm &other)
+{
+    try
+    {
+        other.execute(*this);
+        std::cout << this->getName() << CYAN << " executed " << RESET <<  other.getName() << CYAN << " successfully!" <<  RESET << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << this->getName() << CYAN << " couldn't execute " << RESET << other.getName() << std::endl;
+        std::cout << e.what() << '\n';
+    }
 }

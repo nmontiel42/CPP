@@ -12,12 +12,12 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : name("Default AForm"), requieredSign(1), requieredExecute(1), target("Default target")
+AForm::AForm() : name("Default AForm"), _signed(false), requieredSign(1), requieredExecute(1), target("Default target")
 {
     //std::cout << "Default constructor for AFORM called" << std::endl;
 }
 
-AForm::AForm(const std::string &oname, const int &orsign, const int &orexec, const std::string &otarget) : name(oname), requieredSign(orsign), requieredExecute(orexec), target(otarget)
+AForm::AForm(const std::string &oname, const int &orsign, const int &orexec, const std::string &otarget) : name(oname), _signed(false) ,requieredSign(orsign), requieredExecute(orexec), target(otarget)
 {
     //std::cout << "Custom constructor for AFORM called" << std::endl;
     try
@@ -34,7 +34,7 @@ AForm::AForm(const std::string &oname, const int &orsign, const int &orexec, con
     
 }
 
-AForm::AForm(const AForm &other) : name(other.name), requieredSign(other.requieredSign), requieredExecute(other.requieredExecute), target(other.target)
+AForm::AForm(const AForm &other) : name(other.name), _signed(other.getSigned()), requieredSign(other.requieredSign), requieredExecute(other.requieredExecute), target(other.target)
 {
     //std::cout << "Copy constructor for AFORM called" << std::endl;
     this->_signed = other._signed;
@@ -63,6 +63,11 @@ const char*  AForm::GradeTooHighExcepcion::what() const throw()
 const char* AForm::GradeTooLowExcepcion::what() const throw()
 {
     return ("{AFORM} Grade too LOW");
+}
+
+const char* AForm::isNotSigned::what() const throw()
+{
+    return ("{AFORM} Is not signed");
 }
 
 std::string AForm::getName() const
@@ -109,11 +114,13 @@ void AForm::beSigned(Bureaucrat &other)
         else
         {
             this->_signed = true;
-            std::cout << other.getName() << " signed!" << std::endl;
+            std::cout << other.getName() << CYAN << " signed " << RESET <<  this->getName() << CYAN << " successfully!" <<  RESET << std::endl;
+
         }
     }
     catch(const std::exception& e)
     {
+        std::cout << other.getName() << CYAN << " wasn't able to sign " << RESET << this->getName() << std::endl;
         std::cerr << e.what() << '\n';
     }
 }

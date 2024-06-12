@@ -5,7 +5,8 @@ SRC = Bureaucrat.cpp \
 		main.cpp \
 		AForm.cpp \
 		ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp
+		RobotomyRequestForm.cpp \
+		PresidentialPardonForm.cpp
 
 CPPFLAGS = -std=c++98 -Wall -Werror -Wextra -fsanitize=address
 

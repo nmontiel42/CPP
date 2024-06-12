@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nekane <nekane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 13:10:30 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/11 15:49:43 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:24:23 by nekane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ class AForm
                 virtual const char *what() const throw();
         };
         class GradeTooLowExcepcion : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        class isNotSigned : public std::exception
         {
             public:
                 virtual const char *what() const throw();
