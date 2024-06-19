@@ -6,7 +6,7 @@
 /*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:00:40 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/18 14:43:26 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/06/19 11:21:11 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other)
 
 ScalarConverter::~ScalarConverter()
 {
-    std::cout << "Delituctor for SCALARCONVERTER called" << std::endl;
+    std::cout << "Destructor for SCALARCONVERTER called" << std::endl;
 }
 
 //UTILS
