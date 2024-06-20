@@ -37,3 +37,8 @@ Span& Span::operator=(Span &other)
 Span::~Span()
 {
 }
+
+const char* Span::noSpan::what() const throw()
+{
+    return ("There are not numbers/Only one number found");
+}
