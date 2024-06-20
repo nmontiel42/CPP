@@ -27,10 +27,9 @@ class Span
         Span(Span &);
         Span& operator=(Span &);
         ~Span();
-        void addNumber(unsigned int); //any try to add more numbers than N will throw an exception
+        void addNumber(unsigned int);
         void shortestSpan();
         void longestSpan();
-        //if no one is found, throwas an exception
         class noSpan : public std::exception
         {
             public:
