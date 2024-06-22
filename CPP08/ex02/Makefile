@@ -1,8 +1,7 @@
-NAME = span
+NAME = mutant
 CC = clang++
 
 SRC = main.cpp \
-		Span.cpp
 
 CPPFLAGS = -std=c++98 -Wall -Werror -Wextra 
 
