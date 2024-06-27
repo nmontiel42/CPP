@@ -6,7 +6,7 @@
 /*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:28:28 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/26 16:05:21 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/06/27 12:31:12 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <exception>
 # include <cstdlib>
 # include <vector>
+
+#define CYAN    "\033[36m"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define YELLOW   "\033[33m"
 
 class BitcoinExchange
 {
@@ -37,25 +42,25 @@ class BitcoinExchange
         class badDate : public std::exception
         {
             const char* what() const throw() {
-                return ("Bad date input");
+                return (RED"[ERROR]" RESET " Bad date input");
             }
         };
         class outOfRange : public std::exception
         {
             const char* what() const throw() {
-                return ("Value out of range");
+                return (RED"[ERROR]" RESET " Value out of range");
             }
         };
         class negativeValue : public std::exception
         {
             const char* what() const throw() {
-                return ("Negative value");
+                return (RED"[ERROR]" RESET " Negative value");
             }
         };
         class notFound : public std::exception
         {
             const char* what() const throw() {
-                return ("Data not found");
+                return (RED"[ERROR]" RESET " Data not found");
             }
         };
 };

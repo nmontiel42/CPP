@@ -6,7 +6,7 @@
 /*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:40:07 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/26 16:22:35 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/06/27 12:29:01 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static bool isValidDay(int month, int day, int year)
     return true;
 }
 
-static void isValidDate(std::string &lineDate)
+static void isValidDate(std::string lineDate)
 {
     int i, year, day, month;
     
@@ -125,34 +125,30 @@ static void isValidDate(std::string &lineDate)
     }
 }
 
-static void	saveFileEntry(std::string &strToCheck, BitcoinExchange &btcEx)
+static void	saveFile(std::string &line, BitcoinExchange &bt)
 {
-	double		numValue;
-	std::string dateStr;
-	std::string valueStr;
+	double		numericValue;
+	std::string lineDate, lineValue;
 	int			j;
 
-	(void)btcEx;
-	if (strToCheck == "date | value")
+	if (line == "date | value")
 		return ;
 	try
 	{
-		j = strToCheck.find(" | ", 0);
+		j = line.find(" | ", 0);
 		if (j != -1)
 		{
-			dateStr = strToCheck.substr(0, j);
-			valueStr = strToCheck.substr(j + 3);
-			 std::cout << dateStr << std::endl;
-			numValue = atof(valueStr.c_str());
-			isValidDate(dateStr);
-			if (numValue >= 1000 || (numValue == 0.0 && (valueStr != "0.0" || valueStr != "0")))
+			lineDate = line.substr(0, j);
+			lineValue = line.substr(j + 3);
+			numericValue = atof(lineValue.c_str());
+			isValidDate(lineDate);
+			if (numericValue >= 1000 || (numericValue == 0.0 && (lineValue != "0.0" || lineValue != "0")))
 			{
 				throw(BitcoinExchange::outOfRange());
 			}
-			if (numValue < 0.0)
+			if (numericValue < 0.0)
 				throw(BitcoinExchange::negativeValue());
-			std::cout << dateStr << std::endl;
-			btcEx.obtainDbValue(dateStr, numValue);
+			bt.obtainDbValue(lineDate, numericValue);
 		}
 		else
 			throw(BitcoinExchange::badDate());
@@ -173,12 +169,11 @@ void BitcoinExchange::processData(std::ifstream &file, std::ifstream &data)
     {
         std::getline(data, line);
         saveDt(line, *this);
-        //std::cout << line << "\n"; //comprobacion de que guarda las lineas bien
     }
     while (file.good())
     {
         std::getline(file, line);
-        saveFileEntry(line, *this);
+        saveFile(line, *this);
     }
 }
 

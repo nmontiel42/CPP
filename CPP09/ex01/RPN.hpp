@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/25 14:43:57 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/27 14:42:09 by nmontiel         ###   ########.fr       */
+/*   Created: 2024/06/27 12:37:11 by nmontiel          #+#    #+#             */
+/*   Updated: 2024/06/27 14:15:55 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#ifndef RPN_HPP
+# define RPN_HPP
 
-int main(int argc, char **argv)
+#include <iostream>
+#include <stack>
+#include <exception>
+#include <cstdlib>
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+
+class RPN
 {
-    if (argc == 2)
-    {
-            std::string file(argv[1]);
-        BitcoinExchange bt("data.csv", file);
-        return 0;
-    }
-    return (std::cout << "Error: Usage: " << argv[0] << " <filename> " << std::endl, 1);
-}
+    private:
+        std::stack<int> number;
+    public:
+    
+        RPN();
+        RPN(const std::string &);
+        RPN(const RPN &);
+        RPN& operator=(const RPN &);
+        ~RPN();
+        void calculator(char a);
+};
+
+#endif
