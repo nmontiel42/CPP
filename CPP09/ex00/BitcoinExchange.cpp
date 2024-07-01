@@ -6,7 +6,7 @@
 /*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:40:07 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/27 12:29:01 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:36:15 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,21 @@ static void isValidDate(std::string lineDate)
     }
 }
 
+static bool isValidNumber(const std::string &str)
+{
+    bool hasDecimalPoint = false;
+
+    for (size_t i = 0; i < str.size(); ++i)
+    {
+        if (str[i] == '.') {
+            if (hasDecimalPoint)
+                return false;
+            hasDecimalPoint = true;
+        }
+    }
+    return !str.empty();
+}
+
 static void	saveFile(std::string &line, BitcoinExchange &bt)
 {
 	double		numericValue;
@@ -140,7 +155,9 @@ static void	saveFile(std::string &line, BitcoinExchange &bt)
 		{
 			lineDate = line.substr(0, j);
 			lineValue = line.substr(j + 3);
-			numericValue = atof(lineValue.c_str());
+			if (!isValidNumber(lineValue))
+                throw BitcoinExchange::invalidValue();
+            numericValue = atof(lineValue.c_str());
 			isValidDate(lineDate);
 			if (numericValue >= 1000 || (numericValue == 0.0 && (lineValue != "0.0" || lineValue != "0")))
 			{

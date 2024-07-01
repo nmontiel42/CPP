@@ -6,7 +6,7 @@
 /*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:36:30 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/27 16:51:09 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:23:03 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
         gettimeofday(&end, NULL);
         listTimer = end.tv_usec - start.tv_usec;
         gettimeofday(&start, NULL);
-        pm.sortMergeList();
+        pm.sortMergeVector();
         gettimeofday(&end, NULL);
         vectorTimer = end.tv_usec - start.tv_usec;
         std::cout << "After: ";

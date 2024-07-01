@@ -6,7 +6,7 @@
 /*   By: nmontiel <nmontiel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 14:28:28 by nmontiel          #+#    #+#             */
-/*   Updated: 2024/06/27 12:31:12 by nmontiel         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:33:28 by nmontiel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <exception>
 # include <cstdlib>
 # include <vector>
+# include <stdexcept>
 
 #define CYAN    "\033[36m"
 #define RESET   "\033[0m"
@@ -61,6 +62,12 @@ class BitcoinExchange
         {
             const char* what() const throw() {
                 return (RED"[ERROR]" RESET " Data not found");
+            }
+        };
+        class invalidValue : public std::exception
+        {
+            const char* what() const throw() {
+                return (RED"[ERROR]" RESET " Invalid value");
             }
         };
 };
