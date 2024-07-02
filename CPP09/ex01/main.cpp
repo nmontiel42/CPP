@@ -16,6 +16,12 @@ int main(int argc, char **argv)
 {
     if (argc == 2)
     {
+        std::string ar1(argv[1]);
+        if (ar1.empty()
+        {
+            std::cout << RED << "[ERROR]" << RESET << " Empty string\n";
+            return 0;
+        }
         RPN rpn(argv[1]);
         return 0;
     }
